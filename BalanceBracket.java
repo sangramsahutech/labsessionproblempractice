@@ -1,5 +1,11 @@
 package com.gl.practice.BalancingBracket;
 import java.util.*;
+/* Logic - 1. I traverse through the input string char by char and then I am setting up { - 1, ( - 2, [ - 3, } - -1, ) - -2, ] - -3.
+	   2. Whenever I encounter any of } or ] or ) I am checking the exact previous nonzero element is the negative of corresponding value of ), ], }. If found any then I 
+	   make it 0 and the element as well (just cancelling out + and -). If the previous nonzero element is not negative of corresponding value of ), ], } then the string is
+	    not balanced. (In this way I can achieve ordering of brackets)
+	   3. Lastly I will do a final check whether all elements are zero in my result array. If yes, then return true else return false.
+*/
 public class BalanceBracket {
 	public static void main(String[] args) {
 		String str = "{([])}";
@@ -27,7 +33,7 @@ public class BalanceBracket {
                         if(res[k]!=-res[i])
                             return false;
                         else{
-                            res[k]=0;
+                            res[k]=0;  
                             res[i]=0;
                             k=0;
                         }
